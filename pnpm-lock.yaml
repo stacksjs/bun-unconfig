@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -10,9 +14,6 @@ importers:
       defu:
         specifier: ^6.1.2
         version: 6.1.2
-      jiti:
-        specifier: ^1.18.2
-        version: 1.18.2
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^0.39.2
@@ -45,7 +46,7 @@ importers:
         specifier: ^0.31.1
         version: 0.31.1
 
-  test/fixtures: {}
+  test/fixtures/one: {}
 
 packages:
 
@@ -3021,6 +3022,7 @@ packages:
   /jiti@1.18.2:
     resolution: {integrity: sha512-QAdOptna2NYiSSpv0O/BwoHBSmz4YhpzJHyi+fnMRTXFjp7B8i/YG5Z8IfusxB1ufjcD2Sre1F3R+nX3fvy7gg==}
     hasBin: true
+    dev: true
 
   /js-string-escape@1.0.1:
     resolution: {integrity: sha512-Smw4xcfIQ5LVjAOuJCvN/zIodzA/BBSsluuoSykP+lUvScIi4U6RJLfwHet5cxFnCswUjISV8oAXaqaJDY3chg==}

@@ -1,6 +1,5 @@
 import { promises as fs } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
-import jiti from 'jiti'
 import { notNullish, toArray } from '@antfu/utils'
 import defu from 'defu'
 import type { LoadConfigOptions, LoadConfigResult, LoadConfigSource } from './types'
@@ -129,16 +128,6 @@ async function loadConfigFile<T>(filepath: string, source: LoadConfigSource<T>):
     if (!config) {
       if (typeof parser === 'function') {
         config = await parser(filepath)
-      }
-      else if (parser === 'require') {
-        config = await jiti(filepath, {
-          interopDefault: true,
-          cache: false,
-          v8cache: false,
-          esmResolve: true,
-          // FIXME: https://github.com/unjs/jiti/pull/141
-          requireCache: false,
-        })(bundleFilepath)
       }
       else if (parser === 'json') {
         config = JSON.parse(await read())
