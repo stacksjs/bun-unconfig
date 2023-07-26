@@ -47,19 +47,19 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@antfu/utils": "^0.7.2",
+    "@antfu/utils": "^0.7.5",
     "defu": "^6.1.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.2",
-    "@antfu/ni": "^0.21.3",
-    "@types/node": "^20.2.3",
-    "bumpp": "^9.1.0",
-    "eslint": "^8.41.0",
+    "@antfu/eslint-config": "^0.39.8",
+    "@antfu/ni": "^0.21.5",
+    "@types/node": "^20.4.5",
+    "bumpp": "^9.1.1",
+    "eslint": "^8.45.0",
     "esno": "^0.16.3",
     "lodash-es": "^4.17.21",
-    "typescript": "^5.0.4",
+    "typescript": "^5.1.6",
     "unbuild": "^1.2.1",
-    "vitest": "^0.31.1"
+    "vitest": "^0.31.4"
   }
 }
