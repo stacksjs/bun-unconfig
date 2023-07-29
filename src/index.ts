@@ -5,6 +5,7 @@ import defu from 'defu'
 import type { LoadConfigOptions, LoadConfigResult, LoadConfigSource } from './types'
 import { defaultExtensions } from './types'
 import { findUp } from './fs'
+import { interopDefault } from 'mlly'
 
 export * from './types'
 
@@ -128,6 +129,19 @@ async function loadConfigFile<T>(filepath: string, source: LoadConfigSource<T>):
     if (!config) {
       if (typeof parser === 'function') {
         config = await parser(filepath)
+      }
+      if (process.env.npm_execpath.includes('bun')) {
+        const defaultImport = await import(filepath)
+        config = interopDefault(defaultImport)
+      } else {
+        config = await jiti(filepath, {
+          interopDefault: true,
+          cache: false,
+          v8cache: false,
+          esmResolve: true,
+          // FIXME: https://github.com/unjs/jiti/pull/141
+          requireCache: false
+        })(bundleFilepath);
       }
       else if (parser === 'json') {
         config = JSON.parse(await read())
